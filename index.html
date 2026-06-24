@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Mon Amour ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+}
+
+.container{
+text-align:center;
+color:white;
+z-index:10;
+padding:20px;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:20px;
+animation:beat 1.5s infinite;
+}
+
+p{
+font-size:1.3rem;
+margin-bottom:30px;
+}
+
+.btn{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4d6d;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+color:white;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) scale(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
+}
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.1);}
+}
+
+#message{
+display:none;
+margin-top:20px;
+font-size:1.2rem;
+background:rgba(255,255,255,0.2);
+padding:15px;
+border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>❤️ Tu me manques ❤️</h1>
+
+<p>
+Chaque seconde sans toi me paraît une éternité.<br>
+Tu occupes mes pensées jour et nuit. 💕
+</p>
+
+<button class="btn" onclick="window.location.href='coeur.html'">
+💖 Clique ici mon amour 💖
+</button>
+<div id="message">
+Mon cœur ❤️,<br><br>
+Tu me manques énormément. J'ai hâte de te retrouver et de revoir ton sourire. Peu importe la distance, mon amour pour toi reste le même. 💕🥰
+</div>
+</div>
+
+<script>
+function showLove(){
+document.getElementById("message").style.display="block";
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*40)+"px";
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+}
+
+setInterval(createHeart,250);
+</script>
+
+</body>
+</html>
